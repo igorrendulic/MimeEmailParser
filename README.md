@@ -1,4 +1,6 @@
 # MimeEmailParser
+
+![MimeEmailParser Swift: Email parsing and validation](https://raw.githubusercontent.com/igorrendulic/MimeEmailParser/master/icon-72x72.png)
 -----
 
 ## What is MimeEmailParser
@@ -141,3 +143,7 @@ Possible email format errors:
 | unclosedAngleAddr                             |  Missing trailing >                           |
 | commendNotStartedWithParantheses              |  Failed parsing quoted string in comment      |
 | misformattedParentheticalComment              |  CFWS validation                              |
+
+### License
+
+Alamofire is released under the MIT license. See LICENSE for details.
