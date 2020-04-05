@@ -1,6 +1,8 @@
 # MimeEmailParser
 
-![MimeEmailParser Swift: Email parsing and validation](https://raw.githubusercontent.com/igorrendulic/MimeEmailParser/master/icon-72x72.png) used in  [Mailio](https://mail.io) mobile iOS app
+![MimeEmailParser Swift: Email parsing and validation](https://raw.githubusercontent.com/igorrendulic/MimeEmailParser/master/icon-72x72.png)
+
+Developed for use in [Mailio](https://mail.io) mobile iOS app
 -----
 
 ## What is MimeEmailParser
