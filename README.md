@@ -1,14 +1,20 @@
 # MimeEmailParser
-=====
+-----
 
 ## What is MimeEmailParser
 
-MimeEmailParser is a Swift 5 library which may be used for `parsing and validation` of email addresses. If follows Multipurpose Internet Mail Extension (MIME), as defined in `RFC 5322` for email address parsing and `RFC 2047` for decoding Non-ASCII text. [List of IETF specifications](https://github.com/jstedfast/MimeKit/blob/master/RFCs.md)
+MimeEmailParser is a Swift 5 library which may be used for `parsing and validation` of email addresses. If follows Multipurpose Internet Mail Extension (MIME), as defined in `RFC 5322` for email address parsing and `RFC 2047` ("Q"-encoded) for decoding Non-ASCII text. [List of IETF specifications](https://github.com/jstedfast/MimeKit/blob/master/RFCs.md)
 
 Note that this is not the full implementation of MIME, but deals only with parsing of email addresses and decoding words as defined in RFC2047. 
 
+Supported "high level formats":
+```
+address = mailbox / group
+mailbox = name-addr / addr-spec
+group = display-name ":" [group-list] ";" [CFWS]
+```
+
 ## Features
------------------------
 
 - Parsing single and multiple email adresses
 - Validation of email addresses
@@ -55,10 +61,60 @@ $ git submodule add https://github.com/igorrendulic/MimeEmailParser.git
 
 ## Using MimeEmailParser
 
+MimeEmailParser returns a single or array of `Address` objects:
+
+```swift
+public struct Address {
+    let Name:String?
+    let Address: String
+}
+```
+
 ### Parsing single email address
 
+```swift
+let address = try MimeEmailParser().parseSingleAddress(address: "jdeo@example.domain")
+```
+Some of the supported formats (for more examples check `MimeEmailParserTests.swift` source code)
+
+```swift
+let address = try MimeEmailParser().parseSingleAddress(address: "jdoe@example.domain")
+let address = try MimeEmailParser().parseSingleAddress(address: "John Doe <jdoe@machine.example>")
+let address = try MimeEmailParser().parseSingleAddress(address: "john.q.public@example.com")
+let address = try MimeEmailParser().parseSingleAddress(address: "john.q.public@example.com")
+let address = try MimeEmailParser().parseSingleAddress(address: "John !@M@! Doe <jdoe@machine.example>") // yes. it's a valid address 
+```
+
+Supports also "Q"-encoded email addresses:
+```swift
+// expected result: Address(Name: "Jörg Doe", Address: "joerg@example.com")
+let address = try MimeEmailParser().parseSingleAddress(address: "=?iso-8859-1?q?J=F6rg_Doe?= <joerg@example.com>")
+
+// expected result: Address(Name: "Jörg Doe", Address: "joerg@example.com")
+let address = try MimeEmailParser().parseSingleAddress(address: "=?utf-8?q?J=C3=B6rg?=  =?utf-8?q?Doe?= <joerg@example.com>")
+```
+
+By RFC 5322 only utf-8 and ISO-8859-1 and ASCII is supported but MimeEmailParser doesn't acknowledge those limitations. 
 
 
 ### Parsing mulitple email addresses
 
+```swift
+// expected result: [Address(Name: "Mary Smith", Address: "mary@x.test"),Address(Name: nil, Address: "jdoe@example.org"),Address(Name: "Who?", Address: "<one@y.test>")]
+
+let addresses = try MimeEmailParser().parseAddressList(addresses: "Mary Smith <mary@x.test>, jdoe@example.org, Who? <one@y.test>")
+
+// expected results: Address(Name: "André Pirard", Address: "PIRARD@vm1.ulg.ac.be")
+let addresses = try MimeEmailParser().parseAddressList(addresses: "=?ISO-8859-1?Q?Andr=E9?= Pirard <PIRARD@vm1.ulg.ac.be>")
+
+// expected result: [Address(Name: nil, Address: "addr1@example.com"), Address(Name: nil, Address: "addr2@example.com"), Address(Name: "John", Address: "addr3@example.com")] 
+let addresses = try MimeEmailParser().parseAddressList(addresses: "Group1: <addr1@example.com>;, Group 2: addr2@example.com;, John <addr3@example.com>")
+```
+
 ### Email Validation
+
+MimeEmailParser can also be used for email validation.
+
+```swift
+
+```

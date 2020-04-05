@@ -86,7 +86,6 @@ public class MimeEmailParser {
         
         // addr-spec has a more restricted grammar than name-addr,
         // so try parsing it first, and fallback to name-addr.
-        // TODO(dsymonds): Is this really correct?
         lexer.skipSpace()
         if lexer.isEmpty() {
             throw EmailError.noAddrSpec
