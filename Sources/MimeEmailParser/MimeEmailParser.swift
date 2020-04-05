@@ -35,6 +35,8 @@ public enum EmailError: Error {
 }
 
 public class MimeEmailParser {
+    
+    public init() {}
     // MARK:  For the most part, this package follows the syntax as specified by RFC 5322 and extended by RFC 6532.
     
     // ParseList parses the given string as a list of addresses
