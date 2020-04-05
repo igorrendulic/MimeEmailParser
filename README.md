@@ -149,6 +149,13 @@ Possible email format errors:
 | misformattedParentheticalComment              |  CFWS validation                              |
 
 
+### Decoding "Q"-Encoded words
+
+```swift
+// expcted result: This is a horsey: 🐎
+let decoded = try rfc2047.decodeRFC2047Word(word: "=?UTF-8?B?VGhpcyBpcyBhIGhvcnNleTog8J+Qjg==?=")
+```
+
 ### Contributing
 
 The first thing you'll need to do is fork MimeEmailParser to your own GitHub repository. For instructions on how to do that, see the section titled [Fork the repository](https://guides.github.com/activities/forking/).
