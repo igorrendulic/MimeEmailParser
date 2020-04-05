@@ -124,6 +124,13 @@ final class MimeEmailParserTests: XCTestCase {
         //        },
     }
     
+    func testEmailValidation() throws {
+        do {
+            _ = try MimeEmailParser().parseSingleAddress(address: "John Doe@foo.bar")
+        } catch EmailError.noAngleAddr {
+        }
+    }
+    
     func testRFC2047EncodedAddresses() throws {
         let tests:[String:Address] = [
             // RFC 2047 "Q"-encoded ISO-8859-1 address.

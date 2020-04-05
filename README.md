@@ -116,5 +116,28 @@ let addresses = try MimeEmailParser().parseAddressList(addresses: "Group1: <addr
 MimeEmailParser can also be used for email validation.
 
 ```swift
-
+do {
+    _ = try MimeEmailParser().parseSingleAddress(address: "John Doe@foo.bar")
+} catch EmailError.noAngleAddr {
+}
 ```
+
+Possible email format errors:
+| Error                                         |  Description                                  |
+| ----------------------------------------------|-----------------------------------------------|
+| noAddrSpec                                    |  No email specified                           |
+| utf8Invalid                                   |  Invalid character in address                 |
+| leadingDotInAtom                              |  Detected leading dot                         |
+| doubleDotInAtom                               |  Detected double dots                         |
+| trailingDotInAtom                             |  Detected trailing dot                        |
+| unclosedQuotedString                          |  Unclosed quotes in the name                  |
+| badCharacter                                  |  Bad character in address                     |
+| missingAtInAddrSpace                          |  Missing @ symbol                             |
+| noDomainInAddrSpec                            |  Domain not specified                         |
+| invalidEmailAddress                           |  Email could not be parse (unknown)           |
+| missingWordInPhrase                           |  Missing word in phrase                       |
+| expectedComma                                 |  Missing comma in multiple email addresses    |
+| noAngleAddr                                   |  Likely meant to be "Full Name <...>"         |
+| unclosedAngleAddr                             |  Missing trailing >                           |
+| commendNotStartedWithParantheses              |  Failed parsing quoted string in comment      |
+| misformattedParentheticalComment              |  CFWS validation                              |

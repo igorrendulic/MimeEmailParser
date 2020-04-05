@@ -295,7 +295,7 @@ public class MimeEmailParser {
         }
         let comment = try consumeComment(lexer: lexer)
         
-        // TODO(stapelberg): parse quoted-string within comment
+        // parse quoted-string within comment
         let separators = CharacterSet(charactersIn: " \t")
         var words = comment.components(separatedBy: separators)
         let wordDecoder = WordDecoder()
