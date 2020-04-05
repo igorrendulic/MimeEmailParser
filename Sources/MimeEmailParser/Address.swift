@@ -16,8 +16,8 @@
 import Foundation
 
 public struct Address {
-    var Name:String?
-    var Address: String
+    public var Name:String?
+    public var Address: String
     
     public init(Name:String?, Address:String) {
         self.Name = Name
