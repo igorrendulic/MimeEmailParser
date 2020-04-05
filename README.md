@@ -162,4 +162,4 @@ Once you've got some changes that you'd like to submit upstream to the official 
 
 ### License
 
-Alamofire is released under the MIT license. See LICENSE for details.
+MimeEmailParser is released under the MIT license. See LICENSE for details.
