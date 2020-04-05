@@ -107,21 +107,6 @@ final class MimeEmailParserTests: XCTestCase {
         ]
         let addresses4 = try MimeEmailParser().parseAddressList(addresses: testAddresses4.first!.key)
         try validateCase(parsedAddresses: addresses4, expectedAddresses: testAddresses4.first!.value)
-        
-        
-        // TODO: 🇸🇮 add CWS example: {
-        //            `<cfws@example.com> ()  (another comment), <cfws2@example.com> (another)`,
-        //            []*Address{
-        //                {
-        //                    Name:    "",
-        //                    Address: "cfws@example.com",
-        //                },
-        //                {
-        //                    Name:    "",
-        //                    Address: "cfws2@example.com",
-        //                },
-        //            },
-        //        },
     }
     
     func testEmailValidation() throws {

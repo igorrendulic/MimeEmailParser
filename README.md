@@ -1,6 +1,6 @@
 # MimeEmailParser
 
-![MimeEmailParser Swift: Email parsing and validation](https://raw.githubusercontent.com/igorrendulic/MimeEmailParser/master/icon-72x72.png)
+![MimeEmailParser Swift: Email parsing and validation](https://raw.githubusercontent.com/igorrendulic/MimeEmailParser/master/icon-72x72.png) used in  [Mailio](https://mail.io) mobile iOS app
 -----
 
 ## What is MimeEmailParser
@@ -143,6 +143,18 @@ Possible email format errors:
 | unclosedAngleAddr                             |  Missing trailing >                           |
 | commendNotStartedWithParantheses              |  Failed parsing quoted string in comment      |
 | misformattedParentheticalComment              |  CFWS validation                              |
+
+
+### Contributing
+
+The first thing you'll need to do is fork MimeEmailParser to your own GitHub repository. For instructions on how to do that, see the section titled [Fork the repository](https://guides.github.com/activities/forking/).
+
+
+Once you've got some changes that you'd like to submit upstream to the official MimeEmailParser repository, send me a Pull Request and I will try to review your changes in a timely manner.
+
+### Known Issues
+
+- failing to parse utf-8 characters in domains and local address parts
 
 ### License
 
