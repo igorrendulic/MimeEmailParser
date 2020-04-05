@@ -18,6 +18,8 @@ mailbox = name-addr / addr-spec
 group = display-name ":" [group-list] ";" [CFWS]
 ```
 
+The code has been adapted from official GO source; mail package: https://golang.org/src/net/mail/message.go 
+
 ## Features
 
 - Parsing single and multiple email adresses
