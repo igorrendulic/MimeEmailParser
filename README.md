@@ -1,7 +1,7 @@
 # MimeEmailParser
+=====
 
 ## What is MimeEmailParser
------------------------
 
 MimeEmailParser is a Swift 5 library which may be used for `parsing and validation` of email addresses. If follows Multipurpose Internet Mail Extension (MIME), as defined in `RFC 5322` for email address parsing and `RFC 2047` for decoding Non-ASCII text. [List of IETF specifications](https://github.com/jstedfast/MimeKit/blob/master/RFCs.md)
 
@@ -16,11 +16,10 @@ Note that this is not the full implementation of MIME, but deals only with parsi
 
 
 ## Installation
------------------------
 
 ### Swift Package Manager
 
-The Swift Package Manager is a tool for automating the distribution of Swift code and is integrated into the swift compiler. It is in early development, but Alamofire does support its use on supported platforms.
+The Swift Package Manager is a tool for automating the distribution of Swift code and is integrated into the swift compiler. 
 
 Once you have your Swift package set up, adding MimeEmailParser as a dependency is as easy as adding it to the dependencies value of your Package.swift.
 
@@ -55,7 +54,6 @@ $ git submodule add https://github.com/igorrendulic/MimeEmailParser.git
 
 
 ## Using MimeEmailParser
---------------------------------------------
 
 ### Parsing single email address
 
