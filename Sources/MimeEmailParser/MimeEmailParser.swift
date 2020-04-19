@@ -112,7 +112,7 @@ public class MimeEmailParser {
         if lexer.peek() !=  "<" {
             displayName = try consumePhrase(lexer: lexer)
         }
-        customPrint(items: "parseAddress: displayName:", displayName)
+//        customPrint(items: "parseAddress: displayName:", displayName)
         
         lexer.skipSpace()
         if handleGroup {
