@@ -104,7 +104,7 @@ public class MimeEmailParser {
             return output
         } catch {
             // do nothing (address not an addr-spec)
-            print("state is now \(lexer.toString())")
+//            print("state is now \(lexer.toString())")
         }
         
         // consumePhrase
